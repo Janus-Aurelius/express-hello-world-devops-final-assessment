@@ -4,11 +4,11 @@ FROM node:18-alpine
 # Thiet lap thu muc lam viec 
 WORKDIR /usr/src/app
 
-# Copy file package.json va yarn.lock
-COPY package.json yarn.lock ./
+# Copy file package.json
+COPY package.json ./
 
 # Cai dat cac thu vien can thiet
-RUN yarn install --production
+RUN npm install --production
 
 # Copy toan bo code cua ung dung vao container
 COPY . .
