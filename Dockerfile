@@ -1,14 +1,13 @@
-# Chon base image la node phien ban 18 (hoac moi hon)
+# Chon base image 
 FROM node:18-alpine
 
-# Thiet lap thu muc lam viec trong container
+# Thiet lap thu muc lam viec 
 WORKDIR /usr/src/app
 
-# Copy file package.json va yarn.lock de cai dat dependencies truoc
-# Buoc nay giup docker cache lai qua trinh cai dat, tang toc do build
+# Copy file package.json va yarn.lock
 COPY package.json yarn.lock ./
 
-# Cai dat cac thu vien can thiet (production)
+# Cai dat cac thu vien can thiet
 RUN yarn install --production
 
 # Copy toan bo code cua ung dung vao container
