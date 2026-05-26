@@ -16,12 +16,12 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Thong bao thanh cong buoc checkout
-      run: echo "Da lay ma nguon thanh cong!"
-      if: success()
+      if: ${{ success() }}
+      run: echo 'Da lay ma nguon thanh cong'
 
     - name: Thong bao that bai buoc checkout
-      run: echo "Loi: Khong the lay ma nguon!"
-      if: failure()
+      if: ${{ failure() }}
+      run: echo 'Loi Khong the lay ma nguon'
 
     # Buoc 2: Cai dat thu vien (Install dependencies)
     - name: Setup Node.js
@@ -33,33 +33,33 @@ jobs:
       run: npm install
 
     - name: Thong bao thanh cong buoc cai dat thu vien
-      run: echo "Da cai dat thu vien thanh cong!"
-      if: success()
+      if: ${{ success() }}
+      run: echo 'Da cai dat thu vien thanh cong'
 
     - name: Thong bao that bai buoc cai dat thu vien
-      run: echo "Loi: Cai dat thu vien that bai!"
-      if: failure()
+      if: ${{ failure() }}
+      run: echo 'Loi Cai dat thu vien that bai'
 
     # Buoc 3: Kiem tra code (Test)
     - name: Test
       run: npm run test
 
     - name: Thong bao thanh cong buoc kiem tra
-      run: echo "Kiem tra ma nguon thanh cong!"
-      if: success()
+      if: ${{ success() }}
+      run: echo 'Kiem tra ma nguon thanh cong'
 
     - name: Thong bao that bai buoc kiem tra
-      run: echo "Loi: Kiem tra ma nguon that bai!"
-      if: failure()
+      if: ${{ failure() }}
+      run: echo 'Loi Kiem tra ma nguon that bai'
 
     # Buoc 4: Xay dung Docker image (Build docker image)
     - name: Build Docker image
       run: docker build -t express-hello-world .
 
     - name: Thong bao thanh cong buoc xay dung Docker
-      run: echo "Xay dung Docker image thanh cong!"
-      if: success()
+      if: ${{ success() }}
+      run: echo 'Xay dung Docker image thanh cong'
 
     - name: Thong bao that bai buoc xay dung Docker
-      run: echo "Loi: Xay dung Docker image that bai!"
-      if: failure()
+      if: ${{ failure() }}
+      run: echo 'Loi Xay dung Docker image that bai'
